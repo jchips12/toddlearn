@@ -6,6 +6,8 @@ import 'package:toddlearn/letter_page.dart';
 import 'package:toddlearn/number_page.dart';
 import 'package:toddlearn/shape_page.dart';
 
+import 'color_page.dart';
+
 void main() {
   runApp(const ToddLearn());
 }
@@ -30,6 +32,7 @@ class ToddLearn extends StatelessWidget {
         '/': (context) => const MenuPage(),
         '/letter': (context) => const LetterPage(),
         '/number': (context) => const NumberPage(),
+        '/color': (context) => const ColorPage(),
         '/shape': (context) => const ShapePage(),
         '/animal': (context) => const AnimalPage(),
       },

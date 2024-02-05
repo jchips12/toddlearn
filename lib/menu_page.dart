@@ -18,6 +18,8 @@ class MenuPage extends StatelessWidget {
             const SizedBox(height: 30),
             createElevatedButton(context, 'number'),
             const SizedBox(height: 30),
+            createElevatedButton(context, 'color'),
+            const SizedBox(height: 30),
             createElevatedButton(context, 'shape'),
             const SizedBox(height: 30),
             createElevatedButton(context, 'animal'),

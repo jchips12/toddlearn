@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class LetterPage extends StatefulWidget {
-  const LetterPage({super.key});
+class ColorPage extends StatefulWidget {
+  const ColorPage({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -12,9 +12,18 @@ class LetterPage extends StatefulWidget {
   }
 }
 
-class _CarouselWithIndicatorState extends State<LetterPage> {
-  final String _title = 'Letter';
-  final List _items = List<String>.generate(26, (index) => String.fromCharCode(index + 65));
+class _CarouselWithIndicatorState extends State<ColorPage> {
+  final String _title = 'Color';
+  final List _items = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.purple,
+    Colors.black,
+    Colors.white,
+  ];
 
   final CarouselController _controller = CarouselController();
   final Random _rand = Random(DateTime.now().millisecondsSinceEpoch);
@@ -39,22 +48,8 @@ class _CarouselWithIndicatorState extends State<LetterPage> {
               _controller.animateToPage(_current);
             },
             child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-              ),
+              decoration: BoxDecoration(color: widget),
               width: 300,
-              margin: const EdgeInsets.all(10.0),
-              child: Center(
-                child: Text(
-                  widget.toUpperCase(),
-                  style: const TextStyle(
-                    color: Colors.lightBlueAccent,
-                    fontSize: 150.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
             ),
           ),
         )
@@ -85,7 +80,6 @@ class _CarouselWithIndicatorState extends State<LetterPage> {
                   onPageChanged: (index, reason) => setState(() => _current = index)),
             ),
           ),
-          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: widgets

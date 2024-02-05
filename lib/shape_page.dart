@@ -35,17 +35,27 @@ class _CarouselWithIndicatorState extends State<ShapePage> {
     _pool = List.from(_items.sublist(1));
     widgets = _items
         .map(
-          (widget) => Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
+          (widget) => GestureDetector(
+            onTap: () {
+              if (_pool.isEmpty) {
+                _pool = List.from(_items);
+              }
+              var item = _pool.removeAt(_rand.nextInt(_pool.length));
+              _current = _items.indexOf(item);
+              _controller.animateToPage(_current);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+              ),
+              width: 300,
+              child: Center(
+                  child: Icon(
+                widget,
+                color: Colors.lightBlueAccent,
+                size: 180.0,
+              )),
             ),
-            margin: const EdgeInsets.all(10.0),
-            child: Center(
-                child: Icon(
-              widget,
-              color: Colors.lightBlueAccent,
-              size: 180.0,
-            )),
           ),
         )
         .toList();
@@ -61,7 +71,6 @@ class _CarouselWithIndicatorState extends State<ShapePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(height: 30),
           Expanded(
             child: CarouselSlider(
               items: widgets,
@@ -96,23 +105,6 @@ class _CarouselWithIndicatorState extends State<ShapePage> {
                 .toList(),
           ),
           const SizedBox(height: 10),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(64, 64),
-              shape: const CircleBorder(),
-              backgroundColor: Colors.grey.withOpacity(0.1),
-            ),
-            onPressed: () {
-              if(_pool.isEmpty) {
-                _pool = List.from(_items);
-              }
-               var item = _pool.removeAt(_rand.nextInt(_pool.length));
-              _current = _items.indexOf(item);
-              _controller.animateToPage(_current);
-            },
-            child: const Text(''),
-          ),
-          const SizedBox(height: 30),
         ],
       ),
     );

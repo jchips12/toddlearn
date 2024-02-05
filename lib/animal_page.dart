@@ -47,30 +47,40 @@ class _CarouselWithIndicatorState extends State<AnimalPage> {
     _pool = List.from(_items.sublist(1));
     widgets = _items
         .map(
-          (widget) => Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-            ),
-            margin: const EdgeInsets.all(10.0),
-            child: Stack(
-              children: <Widget>[
-                Image.asset('assets/image/animal/$widget.jpg'),
-                Text(
-                  widget.toUpperCase(),
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(2.0, 2.0),
-                        blurRadius: 3.0,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+          (widget) => GestureDetector(
+            onTap: () {
+              if (_pool.isEmpty) {
+                _pool = List.from(_items);
+              }
+              var item = _pool.removeAt(_rand.nextInt(_pool.length));
+              _current = _items.indexOf(item);
+              _controller.animateToPage(_current);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+              ),
+              width: 300,
+              child: Stack(
+                children: <Widget>[
+                  Image.asset('assets/image/animal/$widget.jpg'),
+                  Text(
+                    widget.toUpperCase(),
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 3.0,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         )
@@ -87,7 +97,6 @@ class _CarouselWithIndicatorState extends State<AnimalPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(height: 30),
           Expanded(
             child: CarouselSlider(
               items: widgets,
@@ -102,7 +111,6 @@ class _CarouselWithIndicatorState extends State<AnimalPage> {
                   onPageChanged: (index, reason) => setState(() => _current = index)),
             ),
           ),
-          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: widgets
@@ -122,23 +130,6 @@ class _CarouselWithIndicatorState extends State<AnimalPage> {
                 .toList(),
           ),
           const SizedBox(height: 10),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(64, 64),
-              shape: const CircleBorder(),
-              backgroundColor: Colors.grey.withOpacity(0.1),
-            ),
-            onPressed: () {
-              if(_pool.isEmpty) {
-                _pool = List.from(_items);
-              }
-               var item = _pool.removeAt(_rand.nextInt(_pool.length));
-              _current = _items.indexOf(item);
-              _controller.animateToPage(_current);
-            },
-            child: const Text(''),
-          ),
-          const SizedBox(height: 30),
         ],
       ),
     );
