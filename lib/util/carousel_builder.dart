@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CarouselBuilder {
   final String title;
@@ -64,17 +65,24 @@ class CarouselBuilder {
   Widget _widgetContent(widget) {
     switch (title) {
       case 'Animals':
-        return Image.asset('assets/image/animal/$widget.jpg');
+        return Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white.withOpacity(0)),
+          ),
+          child: Image.asset('assets/image/animal/$widget.jpg'),
+        );
       case 'Color':
         return Container(
-          decoration: BoxDecoration(color: widget),
+          decoration: BoxDecoration(
+            color: widget,
+          ),
           width: 325,
         );
       case 'Letter':
       case 'Number':
         return Container(
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.white),
+            border: Border.all(color: Colors.white.withOpacity(0)),
           ),
           width: 325,
           child: Center(
@@ -92,14 +100,17 @@ class CarouselBuilder {
       case 'Shape':
         return Container(
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.white),
+            border: Border.all(color: Colors.white.withOpacity(0)),
           ),
           width: 325,
           child: Center(
-            child: Icon(
-              widget,
-              color: Colors.lightBlueAccent,
-              size: 180.0,
+            child: RotatedBox(
+              quarterTurns: widget[1],
+              child: FaIcon(
+                widget[0],
+                color: Colors.lightBlueAccent,
+                size: 200.0,
+              ),
             ),
           ),
         );

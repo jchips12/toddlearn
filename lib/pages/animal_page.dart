@@ -5,30 +5,28 @@ class AnimalPage extends StatefulWidget {
   const AnimalPage({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _CarouselWithIndicatorState();
-  }
+  State<StatefulWidget> createState() => _CarouselWithIndicatorState();
 }
 
 class _CarouselWithIndicatorState extends State<AnimalPage> {
   final CarouselBuilder _carouselBuilder = CarouselBuilder('Animals', [
-    'bunny',
-    'cat',
-    'cow',
+    'zebra',
+    'tiger',
+    'monkey',
     'dog',
+    'elephant',
+    'cat',
+    'panda',
+    'llama',
     'deer',
     'duck',
-    'elephant',
+    'cow',
+    'bunny',
+    'owl',
+    'lion',
+    'penguin',
     'giraffe',
     'horse',
-    'lion',
-    'llama',
-    'monkey',
-    'owl',
-    'panda',
-    'penguin',
-    'tiger',
-    'zebra',
   ]);
 
   @override

@@ -5,9 +5,7 @@ class NumberPage extends StatefulWidget {
   const NumberPage({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _CarouselWithIndicatorState();
-  }
+  State<StatefulWidget> createState() => _CarouselWithIndicatorState();
 }
 
 class _CarouselWithIndicatorState extends State<NumberPage> {

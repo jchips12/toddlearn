@@ -5,9 +5,7 @@ class ColorPage extends StatefulWidget {
   const ColorPage({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _CarouselWithIndicatorState();
-  }
+  State<StatefulWidget> createState() => _CarouselWithIndicatorState();
 }
 
 class _CarouselWithIndicatorState extends State<ColorPage> {

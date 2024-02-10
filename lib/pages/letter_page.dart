@@ -5,9 +5,7 @@ class LetterPage extends StatefulWidget {
   const LetterPage({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _CarouselWithIndicatorState();
-  }
+  State<StatefulWidget> createState() => _CarouselWithIndicatorState();
 }
 
 class _CarouselWithIndicatorState extends State<LetterPage> {
