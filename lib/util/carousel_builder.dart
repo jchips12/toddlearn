@@ -76,7 +76,7 @@ class CarouselBuilder {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
           ),
-          width: 300,
+          width: 325,
           child: Center(
             child: Text(
               widget.toUpperCase(),
@@ -94,7 +94,7 @@ class CarouselBuilder {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
           ),
-          width: 300,
+          width: 325,
           child: Center(
             child: Icon(
               widget,
