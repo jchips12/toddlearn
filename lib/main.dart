@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:toddlearn/animal_page.dart';
-import 'package:toddlearn/menu_page.dart';
-import 'package:toddlearn/letter_page.dart';
-import 'package:toddlearn/number_page.dart';
-import 'package:toddlearn/shape_page.dart';
+import 'package:toddlearn/pages/animal_page.dart';
+import 'package:toddlearn/menu.dart';
+import 'package:toddlearn/pages/letter_page.dart';
+import 'package:toddlearn/pages/number_page.dart';
+import 'package:toddlearn/pages/shape_page.dart';
 
-import 'color_page.dart';
+import 'pages/color_page.dart';
 
 void main() {
   runApp(const ToddLearn());
@@ -29,7 +29,7 @@ class ToddLearn extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MenuPage(),
+        '/': (context) => const Menu(),
         '/letter': (context) => const LetterPage(),
         '/number': (context) => const NumberPage(),
         '/color': (context) => const ColorPage(),
